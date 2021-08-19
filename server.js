@@ -13,9 +13,6 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.use(require("./routes/html-routes.js"));
-app.use(require("./routes/api-routes.js"))
-
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/fitness-tracker", {
     useNewUrlParser: true,
@@ -23,6 +20,9 @@ mongoose.connect(
     useCreateIndex: true,
     unUnifiedTopology: true
 });
+
+app.use(require("./routes/html-routes.js"));
+app.use(require("./routes/api-routes.js"))
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
