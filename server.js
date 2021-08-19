@@ -1,6 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const compression = require("compression");
 
 const PORT = process.env.PORT || 3006;
 
@@ -8,6 +9,7 @@ const app = express();
 
 app.use(logger("dev"));
 
+app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -18,7 +20,7 @@ mongoose.connect(
     useNewUrlParser: true,
     useFindAndModify: false,
     useCreateIndex: true,
-    unUnifiedTopology: true
+    useUnifiedTopology: true
 });
 
 app.use(require("./routes/html-routes.js"));
