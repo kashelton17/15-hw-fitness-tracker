@@ -1,12 +1,15 @@
 const router = require("express").Router();
+const mongoose = require('mongoose');
 const Workout = require("../models/workout.js");
 
 router.get("/api/workouts", async (req, res) => {
     try {
-        await Workout.find({}).then(each => {
+        await Workout.aggregate([{ "$addFields": {"totalDuration": {$sum: "$exercises.duration" }}}]).then(each => {
             res.json(each);
+            console.log(each)
         })
     } catch (err) {
+        console.log(err)
         res.status(400).json(err);
     };
 })
