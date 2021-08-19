@@ -4,7 +4,7 @@ const Workout = require("../models/workout.js");
 
 router.get("/api/workouts", async (req, res) => {
     try {
-        await Workout.aggregate([{ "$addFields": {"totalDuration": {$sum: "$exercises.duration" }}}]).then(each => {
+        await Workout.aggregate([{ "$addFields": {"totalDuration": {$sum: "$exercises.duration" },"totalWeight": {$sum: "$exercises.weight" }}}]).then(each => {
             res.json(each);
             console.log(each)
         })
