@@ -26,7 +26,7 @@ router.post('/api/workouts', async (req, res) => {
 
 router.get("/api/workouts/range", async (req, res) => {
     try {
-        await Workout.aggregate([{ "$addFields": {"totalDuration": {$sum: "$exercises.duration" },"totalWeight": {$sum: "$exercises.weight" }, "totalReps": {$sum: "$exercises.reps" },"totalSets": {$sum: "$exercises.sets" }}}]).sort({$day: 1}).limit(7).then((dbWorkout) => {
+        await Workout.aggregate([{ "$addFields": {"totalDuration": {$sum: "$exercises.duration" },"totalWeight": {$sum: "$exercises.weight" }, "totalReps": {$sum: "$exercises.reps" },"totalSets": {$sum: "$exercises.sets" }}}]).sort({day: 1}).then((dbWorkout) => {
             res.json(dbWorkout);
             console.log(dbWorkout)
         })
