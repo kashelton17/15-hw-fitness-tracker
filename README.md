@@ -6,9 +6,9 @@
  This application tracks workouts and allows you to update and add new workouts. You can view the dashboard and see your progress over the last seven days. This app is hosted on Heroku and uses NoSql on MongoDB for the database 
  [Link to deployed App](https://fitness-tracker-hw-16.herokuapp.com/)
  
- ![Preview Image 1](/public/images/previewImage1.png)
- ![Preview Image 2](/public/images/previewImage2.png)
- ![Preview Image 3](/public/images/previewImage3.png)
+ ![Preview Image 1](./public/images/previewImage1.png)
+ ![Preview Image 2](./public/images/previewImage2.png)
+ ![Preview Image 3](./public/images/previewImage3.png)
 
 
 
